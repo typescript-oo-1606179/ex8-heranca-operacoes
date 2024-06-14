@@ -135,3 +135,51 @@ divisao.mostrarResultado();
 console.log("Retorno de setOperando:", divisao.setOperando1(-6));
 
 divisao.mostrarResultado();
+
+interface ICalculadora {
+  adicao(operando1: number, operando2: number): void;
+  subtracao(operando1: number, operando2: number): void;
+  divisao(operando1: number, operando2: number): void;
+  multiplicacao(operando1: number, operando2: number): void;
+}
+
+class Calculadora implements ICalculadora {
+  public adicao(operando1: number, operando2: number): void {
+    const adicao = new Adicao(operando1, operando2);
+
+    adicao.mostrarResultado();
+  }
+
+  public subtracao(operando1: number, operando2: number): void {
+    const subtracao = new Subtracao(operando1, operando2);
+
+    subtracao.mostrarResultado();
+  }
+
+  public divisao(operando1: number, operando2: number): void {
+    const divisao = new Divisao(operando1, operando2);
+
+    divisao.mostrarResultado();
+  }
+
+  public multiplicacao(operando1: number, operando2: number): void {
+    const multiplicacao = new Multiplicacao(operando1, operando2);
+
+    multiplicacao.mostrarResultado();
+  }
+}
+
+console.log("=================================");
+console.group("Calculadora");
+
+const calculadora = new Calculadora();
+
+calculadora.adicao(4, 5);
+
+calculadora.subtracao(10, 7);
+
+calculadora.divisao(50, 2);
+
+calculadora.multiplicacao(25, 2);
+
+console.groupEnd();
